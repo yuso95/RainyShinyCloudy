@@ -10,8 +10,10 @@ import UIKit
 
 class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // Outlets
+    // Variables and Constants
+    var currentWeather = CurrentWeather()
     
+    // Outlets
     @IBOutlet weak var dateLBL: UILabel!
     @IBOutlet weak var currentTempLBL: UILabel!
     @IBOutlet weak var locationLBL: UILabel!
@@ -20,15 +22,17 @@ class WeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     
     // Actions
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.delegate = self
         tableView.dataSource = self
         
-        print(CURRENT_WEATHER_URL)
+        currentWeather.downloadWeatherDetail {
+            // Setup the UI later
+        }
     }
     
     // TableView Functions
