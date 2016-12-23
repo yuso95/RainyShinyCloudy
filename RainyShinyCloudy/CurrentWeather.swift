@@ -6,15 +6,15 @@
 //  Copyright © 2016 Younoussa Ousmane Abdou. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Alamofire
 
 class CurrentWeather {
     
-    var _cityName: String!
-    var _date: String!
-    var _weatherType: String!
-    var _currentTemp: Double!
+    private var _cityName: String!
+    private var _date: String!
+    private var _weatherType: String!
+    private var _currentTemp: Double!
     
     var cityName: String {
         
@@ -38,7 +38,7 @@ class CurrentWeather {
         dateFormater.timeStyle = .none
         
         let currentDate = dateFormater.string(from: Date())
-        self._date = "Today, \(currentDate)"
+        self._date = "Today \(currentDate)"
         
         return _date
     }
@@ -53,7 +53,7 @@ class CurrentWeather {
         return _weatherType
     }
     
-    var currentType: Double {
+    var currentTemp: Double {
         
         if _currentTemp == nil {
             
@@ -63,11 +63,11 @@ class CurrentWeather {
         return _currentTemp
     }
     
-    func downloadWeatherDetail(completed: DownloadComplete) {
+    func downloadWeatherDetails(completed: DownloadComplete) {
         
         let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
         
-        Alamofire.request(currentWeatherURL).responseJSON { (response) in
+        Alamofire.request(currentWeatherURL).responseJSON { response in
             
             let result = response.result
             
@@ -77,7 +77,7 @@ class CurrentWeather {
                     
                     self._cityName = name.capitalized
                     
-                    print(self._cityName)
+                    print(self.cityName)
                 }
                 
                 if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
@@ -86,7 +86,7 @@ class CurrentWeather {
                         
                         self._weatherType = main.capitalized
                         
-                        print(self._weatherType)
+                        print(self.weatherType)
                     }
                 }
                 
@@ -99,7 +99,7 @@ class CurrentWeather {
                         
                         self._currentTemp = kelvinToFarhenheit
                         
-                        print(self._currentTemp)
+                        print(self.currentTemp)
                     }
                 }
             }
