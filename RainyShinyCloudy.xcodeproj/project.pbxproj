@@ -126,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D57F41A51E070E99009F3D1D /* RainyShinyCloudy */,
+				D57F41D91E070EF9009F3D1D /* Supporting files */,
 				D57F41D51E070ED1009F3D1D /* Test */,
 				D57F41A41E070E99009F3D1D /* Products */,
 				4091BFA7A8D0F626A8B60696 /* Pods */,
@@ -146,11 +147,10 @@
 		D57F41A51E070E99009F3D1D /* RainyShinyCloudy */ = {
 			isa = PBXGroup;
 			children = (
-				D57F41D91E070EF9009F3D1D /* Supporting files */,
+				D57F41AA1E070E99009F3D1D /* Main.storyboard */,
 				D57F41D81E070EEB009F3D1D /* Modal */,
 				D57F41D71E070EE6009F3D1D /* View */,
 				D57F41D61E070EDF009F3D1D /* Controller */,
-				D57F41AA1E070E99009F3D1D /* Main.storyboard */,
 			);
 			path = RainyShinyCloudy;
 			sourceTree = "<group>";
@@ -218,6 +218,7 @@
 				D57F41B21E070E99009F3D1D /* Info.plist */,
 			);
 			name = "Supporting files";
+			path = RainyShinyCloudy;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
